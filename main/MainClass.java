@@ -2,9 +2,12 @@ package main;
 
 import Sort.quickSort;
 import Sort.mergeSort;
+
+
+import java.util.Random;
 public class MainClass {
     public static void main(String[] args) {
-        int[] arr = {10, 7, 8, 9, 1, 5,13,28,6};
+        int[] arr = generateArray(20);
         int n = arr.length;
 
 
@@ -23,5 +26,17 @@ public class MainClass {
             System.out.print(num + " ");
         }
         System.out.println();
+    }
+
+    private static int[] generateArray(int leng){
+        int[] arr = new int[leng];
+
+        Random random = new Random();
+
+        for (int i=0; i<leng; i++){
+            arr[i] = random.nextInt(100);
+        }
+
+        return arr;
     }
 }
