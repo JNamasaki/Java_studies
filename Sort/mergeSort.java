@@ -1,6 +1,18 @@
 package Sort;
 
+
 public class mergeSort {
+    public class GlobalVariables {
+        // Declaração de uma variável estática
+        public static int count = 0;
+    }
+    public class Resulta{
+        public Result(int[] array, int count) {
+            this.array = array;
+            this.count = count;
+        }
+    }
+
     public static int[] mergeSort(int[] arr, int left, int right){
         if (left < right) {
             int middle = (left + right) / 2;
@@ -11,7 +23,8 @@ public class mergeSort {
 
             merge(arr, left, middle, right);
         }
-        return arr;
+        System.out.println("contador: "+ GlobalVariables.count);
+        return new Result(arr, GlobalVariables.count);
     }
     private static void merge(int[] arr, int left, int middle, int right) {
         int n1 = middle - left + 1;
@@ -52,5 +65,6 @@ public class mergeSort {
             j++;
             k++;
         }
+        GlobalVariables.count++;
     }
 }
